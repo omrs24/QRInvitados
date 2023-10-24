@@ -20,6 +20,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeMessage from './src/components/HomeMessage'
 import CameraScanner from './src/components/CameraScanner';
+import ViewShotCs from './src/components/ViewShotCs';
 import { Camera, CameraPermissionStatus, useCameraDevice, useCameraPermission, useCodeScanner, CameraDevice } from 'react-native-vision-camera';
 import styles from './src/scanstyle';
 
@@ -93,6 +94,12 @@ function ScannerScreen({navigation}) {
     );*/
 }
 
+function ViewShotCsScreen(){
+    return (
+        <ViewShotCs />
+    );
+}
+
 const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
@@ -101,6 +108,7 @@ function App(): JSX.Element {
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home"  component={HomeScreen} options={{headerShown: false}}/>
             <Stack.Screen name="Scanner" component={ScannerScreen} options={{ title: 'Scanner'}} />
+            <Stack.Screen name="ViewShotCs" component={ViewShotCsScreen} options={{ title: 'ViewShotCs'}} />
         </Stack.Navigator>
     </NavigationContainer>
   )

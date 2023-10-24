@@ -7,9 +7,18 @@ import {
     Text,
     View,
     ImageBackground,
+    Alert,
+    Pressable
   } from 'react-native';
-import nav from '@react-navigation/native';
 import styles from '../scanstyle';
+/* para eliminar
+import ViewShot from "react-native-view-shot";
+*/
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+
+/** Imprimir PDF */
+
 
 export default class HomeMesage extends Component {
     constructor(props) {
@@ -33,6 +42,9 @@ export default class HomeMesage extends Component {
             var empresaQR = splData[2]
         }
         
+        
+
+        
 
         return(
             <View style={{ flexDirection: 'column', 
@@ -46,7 +58,10 @@ export default class HomeMesage extends Component {
                             <Text style={{...styles.buttonTextStyle, color: '#2196f3'}}>Scan QR Code</Text>
                         </View>
                     </TouchableOpacity>
-                    <Text style={{color: '#000',textAlign: 'center'}}>col 2</Text>
+                    
+                    <Pressable style={styles.button} onPress={() => createPDF()}>
+                        <Text style={styles.text}>Generate PDF</Text>
+                    </Pressable>
                 </View>{/* Final de Boton para escanear */}
                 
 
@@ -76,6 +91,8 @@ export default class HomeMesage extends Component {
             </View>
         )
     }
+
+
 }
 
 // Recibe el stack de navegacion

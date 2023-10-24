@@ -159,6 +159,12 @@ const styles = {
     body_spacer: {
         marginTop: 40,
         marginBottom: 40
-    }
+    },
+    button: {
+        backgroundColor: '#6c8ee3',
+        padding: 15,
+        borderRadius: 10,
+        margin: 20,
+    },
 }
 export default styles;
