@@ -14,8 +14,8 @@ const CameraScanner = (navigation) => {
     const codeScanner = useCodeScanner({
         codeTypes: ['qr', 'ean-13'],
         onCodeScanned: (codes) => {
-            console.log(codes[0].value)
-            setPostText()
+            //console.log(codes[0].value)
+            navigation.setParams({qrData: codes[0].value})
             navigation.navigate({
                 name: 'Home',
                 params: { qrData: codes[0].value },

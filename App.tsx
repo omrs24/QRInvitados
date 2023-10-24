@@ -26,7 +26,7 @@ import styles from './src/scanstyle';
 function HomeScreen({navigation, route}) {
     
     let data = {
-        qrData: route.params?.qrData,
+        route1: route,
         navigation1: navigation,
     }
 

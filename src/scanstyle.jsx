@@ -111,6 +111,54 @@ const styles = {
     buttonTextStyle: {
         color: 'black',
         fontWeight: 'bold',
+    },
+    container: {
+        borderWidth: 1,
+        borderColor: '#000',
+        marginTop: 50,
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius:20,
+        height:550,
+        justifyContent: 'space-between'
+    },
+    header: {
+        flexDirection: 'row',
+        backgroundColor: '#223B6F',
+        borderTopLeftRadius: 18,
+        borderTopRightRadius: 18,
+        justifyContent: 'center'
+    },
+    footer: {
+        flexDirection: 'row',
+        backgroundColor: '#223B6F',
+        borderBottomLeftRadius: 18,
+        borderBottomRightRadius: 18,
+        justifyContent: 'center',
+        height: 90
+    },
+    logosomus: {
+        width: 190,
+        height: 130
+    },
+    text_h1: {
+        color: '#000',
+        textAlign: 'center',
+        fontSize: 70
+    },
+    text_h3: {
+        color: '#000',
+        textAlign: 'center',
+        fontSize: 40
+    },
+    text_h5: {
+        color: '#000',
+        textAlign: 'center',
+        fontSize: 30
+    },
+    body_spacer: {
+        marginTop: 40,
+        marginBottom: 40
     }
 }
 export default styles;
