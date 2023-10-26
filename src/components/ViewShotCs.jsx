@@ -1,6 +1,7 @@
 
 import React, {Component, useRef, useState, useCallback, useEffect}from 'react';
 import {
+    Alert,
     ScrollView,
     StyleSheet,
     Text,
@@ -11,19 +12,36 @@ import {
   } from 'react-native';
 import ViewShot from "react-native-view-shot";
 import Btn from './Btn';
+import RNFS from "react-native-fs"
 
 const ViewshootCs = () => {
 
     const full = useRef();
   const [preview, setPreview] = useState(null);
+  const [preview1, setPreview1] = useState(null);
   const [itemsCount, setItemsCount] = useState(10);
   const [refreshing, setRefreshing] = useState(false);
 
   const onCapture = useCallback(() => {
-    full.current.capture().then(uri =>{ 
+    full.current.capture().then(function(uri){ 
         setPreview({ uri })
+        let destinationPath = RNFS.DocumentDirectoryPath + "/gafete.png"
+
         console.log(uri)
-    });
+        console.log(destinationPath)
+
+        RNFS.copyFile(uri, destinationPath).then(result => {
+          console.log("Archivo copiado",result)
+          setPreview1({ destinationPath })
+        })
+        .catch(error => {
+          console.log('There has been a problem with your fetch operation: ', error);
+           // ADD THIS THROW error
+            throw error;
+          });
+
+        
+    })
     
   }, []);
 
@@ -52,7 +70,7 @@ const ViewshootCs = () => {
             fadeDuration={0}
             resizeMode="contain"
             style={styles.previewImage}
-            source={preview}
+            source={preview1}
           />
 
           {Array(itemsCount)

@@ -11,11 +11,13 @@ import {
     Pressable
   } from 'react-native';
 import styles from '../scanstyle';
-/* para eliminar
+
+/* para eliminar */
 import ViewShot from "react-native-view-shot";
-*/
-import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import RNFS from "react-native-fs"
+
+/*import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';*/
 
 /** Imprimir PDF */
 
@@ -42,9 +44,9 @@ export default class HomeMesage extends Component {
             var empresaQR = splData[2]
         }
         
-        
+        const ViewSh = () =>{
 
-        
+        }
 
         return(
             <View style={{ flexDirection: 'column', 
